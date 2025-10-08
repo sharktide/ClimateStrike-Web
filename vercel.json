@@ -1,0 +1,20 @@
+{
+    "rewrites": [
+        {
+            "source": "/install",
+            "destination": "install.html"
+        },
+        {
+            "source": "/playground",
+            "destination": "playground.html"
+        },
+        {
+            "source": "/security",
+            "destination": "security.html"
+        },
+        {
+            "source": "/hf-space",
+            "destination": "https://sharktide-strike.hf.space"
+        }
+    ]
+}
