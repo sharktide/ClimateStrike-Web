@@ -13,11 +13,34 @@
         h1 {
             text-align: center;
         }
+        .repo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .repo-container {
+            flex-direction: column;
+            align-items: stretch;
+            }
+
+            .repo-container a {
+            width: 100%;
+            text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">ClimateStrike AI</div>
+        <div class="nav-left">
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="logo">ClimateStrike AI</div>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="install.html">Download</a></li>
@@ -25,6 +48,7 @@
             <li><a href="security.html">Security Policy</a></li>
         </ul>
     </nav>
+
     <div class="hero center1">
         <div class="hero-left" style="padding: 40px;">
             <h1>ClimateStrike AI</h1>
@@ -46,7 +70,7 @@
             <h1 style="text-align: center;">
                 Our Mission
             </h1>
-            <p style="text-align: center; width: 1000px; margin: 0 auto;">
+            <p style="text-align: center; max-width: 1000px; margin: 0 auto;">
                 Natural disasters are a large problem in the global community.
                 We strive to provide services for the early prediction of
                 natural disasters. We use 14 different artificial intellgience
@@ -91,16 +115,16 @@
         <br />
         <div class="oss" id="oss">
             <h1 style="text-align: center;">Open source</h1>
-            <p style="text-align: center; margin: 0 auto; width: 700px">
+            <p style="text-align: center; margin: 0 auto; max-width: 700px">
                 All of our code and models are open source and available for
                 the public to download, view, fork and use. They are hosted
                 on GitHub and Huggingface.
             </p>
             <br />
-            <p style="text-align: center; margin: 0 auto; width: 700px; color: var(--primary-color);">
+            <p style="text-align: center; margin: 0 auto; max-width: 700px; color: var(--primary-color);">
                 Model files are available at the ClimateStrike-Core repository and on <a target="_blank" href="https://huggingface.co/collections/sharktide/climatestrike-ai-685bd11b912927f8a78554c0">Huggingface</a>
             </p>
-            <div style="display: flex; align-items: center; justify-content: center; padding:10px; gap: 20px;">
+            <div class="repo-container">
                 <a target="_blank" href="https://github.com/sharktide/ClimateStrike-Core"><img alt="ClimateStrike-Core" src="https://github-readme-stats.vercel.app/api/pin/?username=sharktide&repo=climatestrike-core&show_owner=true&theme=dark" /></a>
                 <a target="_blank" href="https://github.com/sharktide/ClimateStrike-App"><img alt="ClimateStrike-App" src="https://github-readme-stats.vercel.app/api/pin/?username=sharktide&repo=climatestrike-app&show_owner=true&theme=dark" /></a>
                 <a target="_blank" href="https://github.com/sharktide/ClimateStrike-Web"><img alt="ClimateStrike-Website" src="https://github-readme-stats.vercel.app/api/pin/?username=sharktide&repo=climatestrike-web&show_owner=true&theme=dark" /></a>
@@ -108,7 +132,7 @@
         </div>
         <div id=download>
             <h1>Install the App</h1>
-            <p style="text-align: center; margin: 0 auto; width: 700px;">
+            <p style="text-align: center; margin: 0 auto; max-width: 700px;">
                 Binaries and Installers are available for Windows x64, Windows ARM, and MacOS
                 iOS binaries and APK files also coming soon.
                 Upon v1.0.0 official release, the installers willbe uploaded here.

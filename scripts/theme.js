@@ -38,6 +38,10 @@ function updateToggleButton(currentTheme) {
 	}
 }
 
+function toggleMenu() {
+	document.querySelector('.nav-links').classList.toggle('show');
+}
+
 document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
 
 window.onload = applySavedTheme;

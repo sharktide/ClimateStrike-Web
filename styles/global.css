@@ -58,10 +58,9 @@ body {
 	padding: 0;
 }
 
-/* Fix: Navbar alignment */
 nav {
 	display: flex;
-	justify-content: space-between; /* Ensure alignment */
+	justify-content: space-between;
 	padding: 15px 40px;
 	background: var(--bg-light);
 	border-bottom: 1px solid var(--secondary-color);
@@ -138,15 +137,6 @@ nav {
 .auth-card h1 {
 	font-size: 22px;
 	margin-bottom: 20px;
-}
-
-.hamburger {
-	display: none;
-	font-size: 26px;
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: var(--dark-text);
 }
 
 form {
@@ -619,8 +609,10 @@ select {
   padding: 8px;
   font-size: 14px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #3d8aff;
   width: 100%;
+  color: white;
+  background-color: #2a2a2a;
 }
 
 .binary-list {
@@ -643,4 +635,88 @@ select {
   font-size: 15px;
   color: #666;
   margin-top: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  font-family: system-ui, Inter, sans-serif;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--dark-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 20px;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 8px 0;
+    text-align: left;
+  }
 }

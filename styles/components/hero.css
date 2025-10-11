@@ -62,3 +62,9 @@
     max-width: 300px;
     border-radius: 4px;
 }
+
+@media (max-width: 1000px) {
+    .hero img {
+        display: none;
+    }
+}

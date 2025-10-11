@@ -59,8 +59,7 @@
       <label for="mac-arch">Architecture:</label>
       <select id="mac-arch" onchange="showBinaries('mac', this.value)">
         <option value="">Select architecture</option>
-        <option value="apple">Apple Silicon</option>
-        <option value="intel">Intel</option>
+        <option value="apple">Apple Silicon / Intel x86_64</option>
       </select>
       <div id="mac-binaries" class="binary-list"></div>
     </details>
@@ -89,7 +88,6 @@ const binaries = {
     apple: [
       { name: "Installer (.pkg)", url: "https://github.com/sharktide/ClimateStrike-App/releases/latest/download/StrikeAI-1.0.pkg" }
     ],
-    intel: "coming"
   }
 };
 
