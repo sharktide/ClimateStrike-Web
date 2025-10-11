@@ -18,6 +18,7 @@
 <body>
     <nav>
         <div class="logo">ClimateStrike AI</div>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="install.html">Download</a></li>
@@ -35,18 +36,13 @@
                 <a href="playground.html" target="_blank">Try it online --></a>
             </div>
         </div>
-
-        <!-- <div class="hero-right">
-            <img src="img/examples/example1.png" style="padding-right: 10px;"/>
-            <img src="img/examples/example2.png" />
-        </div> -->
     </div>
-    <main style="padding: 40px;">
+    <main class="main-content">
         <div>
             <h1 style="text-align: center;">
                 Our Mission
             </h1>
-            <p style="text-align: center; width: 1000px; margin: 0 auto;">
+            <p class="lead">
                 Natural disasters are a large problem in the global community.
                 We strive to provide services for the early prediction of
                 natural disasters. We use 14 different artificial intellgience
@@ -115,5 +111,21 @@
             </p>
         </div>
     </main>
-</body>
+    <script>
+        // Mobile nav toggle and accessible state update
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav-links');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function () {
+                const isShown = nav.classList.toggle('show');
+                btn.setAttribute('aria-expanded', isShown ? 'true' : 'false');
+            });
+            // close nav after clicking a link (mobile)
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.addEventListener('click', () => nav.classList.remove('show'));
+            });
+        });
+    </script>
+ </body>
 </html>

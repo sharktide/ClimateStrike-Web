@@ -800,3 +800,96 @@ nav .logo {
 
     .notification { width: calc(100% - 32px); right: 16px; left: 16px; }
 }
+
+/* Appended responsive fixes and navbar behaviour */
+.main-content {
+    padding: 40px;
+    box-sizing: border-box;
+}
+.lead {
+    text-align: center;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Ensure open-source images are responsive */
+.oss img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobile hamburger styling */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 6px 10px;
+    color: var(--dark-text);
+}
+
+/* Desktop: keep nav links horizontal */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Mobile: collapse nav */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+
+    .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 12px;
+        right: 12px;
+        background: var(--bg-light);
+        flex-direction: column;
+        display: none;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        z-index: 2000;
+    }
+
+    .nav-links.show { display: flex; }
+
+    .nav-links li { width: 100%; }
+    .nav-links a {
+        display: block;
+        padding: 10px 12px;
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    /* Reduce hero padding and stack */
+    .hero-left { padding: 20px !important; }
+    .main-content { padding: 20px; }
+
+    /* Slideshow: horizontal scroll on small screens */
+    .slideshow-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+    }
+    .slide {
+        flex: 0 0 80%;
+        max-width: 80%;
+        scroll-snap-align: center;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .logo { font-size: 18px; }
+    .hero-left h1 { font-size: 1.35rem; }
+    .lead { max-width: 92%; padding: 0 6px; }
+    .slideshow-track { gap: 8px; }
+    .slide { flex: 0 0 90%; max-width: 90%; }
+    .nav-links { top: 56px; left: 8px; right: 8px; }
+}
