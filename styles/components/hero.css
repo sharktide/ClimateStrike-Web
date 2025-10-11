@@ -63,6 +63,12 @@
     border-radius: 4px;
 }
 
+.hero-buttons a:nth-child(3) {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
 @media (max-width: 1000px) {
     .hero img {
         display: none;
