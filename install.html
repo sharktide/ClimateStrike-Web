@@ -38,8 +38,84 @@
             <img src="img/examples/example2.png" />
         </div>
     </div>
-    <main style="padding: 40px;">
-        <h1 style="text-align: center;">Coming soon</h1>
-    </main>
+<main style="padding: 40px;">
+  <h1 style="text-align: center;">Download ClimateStrike AI</h1>
+
+  <div class="download-container">
+    <details class="download-block">
+      <summary>Windows</summary>
+      <label for="win-arch">Architecture:</label>
+      <select id="win-arch" onchange="showBinaries('windows', this.value)">
+        <option value="">Select architecture</option>
+        <option value="amd64">AMD64</option>
+        <option value="arm64">ARM64</option>
+        <option value="win32">Win32</option>
+      </select>
+      <div id="windows-binaries" class="binary-list"></div>
+    </details>
+
+    <details class="download-block">
+      <summary>macOS</summary>
+      <label for="mac-arch">Architecture:</label>
+      <select id="mac-arch" onchange="showBinaries('mac', this.value)">
+        <option value="">Select architecture</option>
+        <option value="apple">Apple Silicon</option>
+        <option value="intel">Intel</option>
+      </select>
+      <div id="mac-binaries" class="binary-list"></div>
+    </details>
+
+    <details class="download-block">
+      <summary>Android</summary>
+      <p class="placeholder">Binaries coming soon. Please build from source.</p>
+    </details>
+  </div>
+</main>
+
+<script>
+const binaries = {
+  windows: {
+    amd64: [
+      { name: "Installer (.exe)", url: "https://github.com/sharktide/ClimateStrike-App/releases/latest/download/ClimateStrikeAI_x64.exe" },
+      { name: "Portable (.zip)", url: "https://github.com/sharktide/ClimateStrike-App/releases/latest/download/ClimateStrike-Unpacked-x64.zip" }
+    ],
+    arm64: [
+      { name: "Installer (.exe)", url: "https://github.com/sharktide/ClimateStrike-App/releases/latest/download/ClimateStrikeAI_aarch64.exe" },
+      { name: "Portable (.zip)", url: "https://github.com/sharktide/ClimateStrike-App/releases/latest/download/ClimateStrike-Unpacked-aarch64.zip" }
+    ],
+    win32: "coming"
+  },
+  mac: {
+    apple: [
+      { name: "Installer (.pkg)", url: "https://github.com/sharktide/ClimateStrike-App/releases/latest/download/StrikeAI-1.0.pkg" }
+    ],
+    intel: "coming"
+  }
+};
+
+function showBinaries(os, arch) {
+  const containerId = `${os}-binaries`;
+  const binaryDiv = document.getElementById(containerId);
+  binaryDiv.innerHTML = '';
+
+  if (!arch) return;
+
+  const data = binaries[os][arch];
+  if (data === 'coming') {
+    binaryDiv.innerHTML = `<p class="placeholder">Binaries coming soon. Please build from source.</p>`;
+    return;
+  }
+
+  data.forEach(file => {
+    const link = document.createElement('a');
+    link.href = file.url;
+    link.textContent = file.name;
+    binaryDiv.appendChild(link);
+  });
+}
+</script>
+
+
+
 </body>
 </html>
