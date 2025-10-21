@@ -101,27 +101,6 @@ function showBinaries(os, arch) {
   const containerId = `${os}-binaries`;
   const binaryDiv = document.getElementById(containerId);
   binaryDiv.innerHTML = '';
-
-  if (!arch) return;
-
-  const data = binaries[os][arch];
-  if (data === 'coming') {
-    binaryDiv.innerHTML = `<p class="placeholder">Binaries coming soon. Please build from source.</p>`;
-    return;
-  }
-
-  data.forEach(file => {
-    const link = document.createElement('a');
-    link.href = file.url;
-    link.textContent = file.name;
-    binaryDiv.appendChild(link);
-  });
-
-  // Inject Microsoft Store badge for Windows
-function showBinaries(os, arch) {
-  const containerId = `${os}-binaries`;
-  const binaryDiv = document.getElementById(containerId);
-  binaryDiv.innerHTML = '';
   if (os === 'windows') {
     const badge = document.createElement('div');
     badge.innerHTML = `
