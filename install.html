@@ -118,23 +118,33 @@ function showBinaries(os, arch) {
   });
 
   // Inject Microsoft Store badge for Windows
+function showBinaries(os, arch) {
+  const containerId = `${os}-binaries`;
+  const binaryDiv = document.getElementById(containerId);
+  binaryDiv.innerHTML = '';
   if (os === 'windows') {
-    const badgeScript = document.createElement('script');
-    badgeScript.type = 'module';
-    badgeScript.src = 'https://get.microsoft.com/badge/ms-store-badge.bundled.js';
-    document.body.appendChild(badgeScript);
-
-    const badge = document.createElement('ms-store-badge');
-    badge.setAttribute('productid', '9n067x4gdm7z');
-    badge.setAttribute('productname', 'ClimateStrike AI');
-    badge.setAttribute('window-mode', 'direct');
-    badge.setAttribute('theme', 'auto');
-    badge.setAttribute('size', 'small');
-    badge.setAttribute('language', 'en-us');
-    badge.setAttribute('animation', 'off');
-
+    const badge = document.createElement('div');
+    badge.innerHTML = `
+      <a href="https://apps.microsoft.com/detail/9n067x4gdm7z?referrer=appbadge&mode=direct">
+        <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+      </a>
+    `;
     binaryDiv.appendChild(badge);
   }
+  if (!arch) return;
+
+  const data = binaries[os][arch];
+  if (data === 'coming') {
+    binaryDiv.innerHTML = `<p class="placeholder">Binaries coming soon. Please build from source.</p>`;
+    return;
+  }
+
+  data.forEach(file => {
+    const link = document.createElement('a');
+    link.href = file.url;
+    link.textContent = file.name;
+    binaryDiv.appendChild(link);
+  });
 }
 </script>
 
